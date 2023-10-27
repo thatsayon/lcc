@@ -1,5 +1,19 @@
 #!/bin/bash
 
-mkdir $1 
-cd $1
-exec bash
+setp(){
+    mkdir $1 
+    cd $1
+    exec bash
+}
+
+setpwurl() {
+    echo "With url"
+}
+
+if [ "$1" == "-h" ] ; then
+    echo "This is help"
+elif [ -n "$2" ] ; then
+    setpwurl
+else
+    echo "exec"
+fi
