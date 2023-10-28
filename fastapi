@@ -3,17 +3,24 @@
 setp(){
     mkdir $1 
     cd $1
-    exec bash
+    #touch main.py database.py schemas.py crud.py 
 }
 
 setpwurl() {
     echo "With url"
 }
 
-if [ "$1" == "-h" ] ; then
-    echo "This is help"
+help_text() {
+    echo "Usage: fastapi [project name] [database_url]"
+    echo "--help      Display this information"
+    echo "-h          Display this information"
+    echo "-v          Display current version"
+}
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ] ; then
+    help_text
 elif [ -n "$2" ] ; then
     setpwurl
 else
-    echo "exec"
+    setp $1
 fi
