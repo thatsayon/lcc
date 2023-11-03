@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if g++ "$1.cpp" -o a.out; then
+    echo "$1.cpp compiled successfully"
+    echo ""
+    ./a.out
+else
+    echo "Error: Compilation of $1.cpp failed"
+fi
+
